@@ -1,0 +1,624 @@
+Nome: Maria Clara Dante Santos
+
+-------------------------------------------------------------------------------------------------------------
+
+1)
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner ler = new Scanner (System.in);
+        double[] notas = new double [10];
+        double media = 0, maior_nota = 0, menor_nota = 0, acima_media = 0, abaixo_media = 0, total = 0;
+        
+        for(int i = 0; i < 10; i++){
+            System.out.println("Digite a nota do aluno " + (i + 1) + ": ");
+            notas[i] = ler.nextDouble();
+            
+            if(i == 0){
+                maior_nota = notas[i];
+                menor_nota = notas[i];
+            }
+            
+            if(notas[i] > maior_nota){
+                maior_nota = notas[i];
+            }
+            
+            if(notas[i] < menor_nota){
+                menor_nota = notas[i];
+            }
+            
+            if(notas[i] >= 7){
+                acima_media++;
+            }
+            
+            total += notas[i];
+        }
+        
+        media = total / 10;
+        
+        for(int i = 0; i < 10; i++){
+            if(notas[i] < media){
+                abaixo_media++;
+            }
+        }
+        
+        System.out.println("Media da turma: " + media);
+        System.out.println("Maior nota da turma: " + maior_nota);
+        System.out.println("Menor nota da turma: " + menor_nota);
+        System.out.println("Notas maiores ou iguais a 7: " + acima_media);
+        System.out.println("Notas abaixo da média: " + abaixo_media);
+    }
+}
+
+----------------------------------------------------------------------------------------
+
+2)
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner ler = new Scanner(System.in);
+        int[][] matriz = new int[4][4];
+        int[] diag_principal = new int[4];
+        int[] diag_secundaria = new int[4];
+        int soma_principal = 0, soma_secundaria = 0, contador1 = 0,  contador2 = 0;
+        
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                System.out.print("Digite um numero inteiro: ");
+                matriz[i][j] = ler.nextInt();
+                
+                if(i == j){
+                    diag_principal[contador1] = matriz[i][j];
+                    contador1++;
+                    soma_principal += matriz[i][j];
+                }
+                if(i + j == 3){
+                    diag_secundaria[contador2] = matriz[i][j];
+                    contador2++;
+                    soma_secundaria += matriz[i][j];
+                }
+            }
+        }
+        
+        System.out.println();
+        
+        for(int i = 0; i < 4; i++){
+            System.out.println();
+            for(int j = 0; j < 4; j++){
+                System.out.print(" | "+ matriz[i][j] +" | ");
+            }
+        }
+        
+        System.out.println("\n\nDiagonal principal: " + diag_principal[0] + ", " + diag_principal[1] + ", " + diag_principal[2]+", " + diag_principal[3]);
+        System.out.println("Soma da diagonal principal: " + soma_principal);
+        System.out.println("\nDiagonal secundaria: " + diag_secundaria[0] + ", " + diag_secundaria[1] + ", " + diag_secundaria[2] + ", " + diag_secundaria[3]);
+        System.out.println("Soma da diagonal secundaria: "+ soma_secundaria);
+        
+        if(soma_principal > soma_secundaria){
+            System.out.println("\nA soma da diagonal principal e maior que a da secundaria");
+        }else if(soma_secundaria < soma_principal){
+            System.out.println("\nA soma da diagonal secundaria e maior que a da principal");
+        }else{
+            System.out.println("\nAs somas sao iguais");
+        }
+    }
+}
+
+----------------------------------------------------------------------------------------
+
+3)
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner ler = new Scanner(System.in);
+        int[] vetor = new int[15];
+        int[] distintos = new int[15];
+        int qtd = 0;
+
+        for(int i = 0; i < 15; i++) {
+            System.out.print("Digite um número inteiro: ");
+            vetor[i] = ler.nextInt();
+        }
+
+        for(int i = 0; i < 15; i++) {
+            int repetido = 0;
+            for(int j = 0; j < qtd; j++) {
+                if (vetor[i] == distintos[j]) {
+                    repetido = 1;
+                }
+            }
+
+            if (repetido == 0) {
+                distintos[qtd] = vetor[i];
+                qtd++;
+            }
+        }
+
+        System.out.println("\nValores diferentes:");
+
+        for (int i = 0; i < qtd; i++) {
+            System.out.print(distintos[i] + " ");
+        }
+
+        System.out.println("\nQuantidade de valores repetidos: " + qtd);
+    }
+}
+
+-------------------------------------------------------------------------------------------
+
+4)
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner ler = new Scanner(System.in);
+
+        int[][] matriz = new int[5][5];
+        int[][] rotacionada = new int[5][5];
+
+        for (int i = 0; i < 5; i++)
+            for (int j = 0; j < 5; j++)
+                matriz[i][j] = ler.nextInt();
+
+        for (int i = 0; i < 5; i++)
+            for (int j = 0; j < 5; j++)
+                rotacionada[j][4 - i] = matriz[i][j];
+
+        System.out.println("Matriz original:");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++)
+                System.out.print(matriz[i][j] + " ");
+            System.out.println();
+        }
+
+        System.out.println("Matriz rotacionada:");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++)
+                System.out.print(rotacionada[i][j] + " ");
+            System.out.println();
+        }
+
+    }
+}
+
+--------------------------------------------------------------------------------------------
+
+5)
+import java.util.Scanner; 
+ 
+class Main { 
+    public static void main(String[] args) { 
+        Scanner ler = new Scanner(System.in); 
+ 
+        int[] vetor1 = new int[20]; 
+        int[] vetor2 = new int[20]; 
+        int contador1 = 0, contador2 = 0; 
+ 
+        for(int i = 0; i < 20; i++){ 
+            System.out.print("Digite um numero inteiro para a posicao: "); 
+            vetor1[i] = ler.nextInt(); 
+            vetor2[i] = vetor1[i]; 
+        } 
+ 
+        System.out.print("\nVetor original: "); 
+        for(int i = 0; i < 20; i++){ 
+            System.out.print(vetor1[i] + " "); 
+        } 
+ 
+        for(int i = 0; i < 20; i++){ 
+            int menor = i; 
+ 
+            for(int j = 0; j < 20; j++){ 
+                contador2++; 
+ 
+                if(j > i && vetor2[j] < vetor2[menor]){ 
+                    menor = j; 
+                } 
+            } 
+ 
+            if(menor != i){ 
+                int valor = vetor2[i]; 
+                vetor2[i] = vetor2[menor]; 
+                vetor2[menor] = valor; 
+                contador1++; 
+            } 
+        } 
+ 
+        System.out.print("\nVetor organizado: "); 
+        for(int i = 0; i < 20; i++){ 
+            System.out.print(vetor2[i] + " "); 
+        } 
+ 
+        double mediana = (vetor2[9] + vetor2[10]) / 2.0; 
+ 
+        System.out.println("\n\nComparacoes feitas: " + contador2); 
+        System.out.println("Trocas feitas: " + contador1); 
+        System.out.println("Mediana dos numeros: " + mediana); 
+    } 
+}
+
+--------------------------------------------------------------------------------------------
+
+6)
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner ler = new Scanner(System.in);
+
+        int[][] matriz = new int[3][3];
+
+        int soma_linha = 0, linha_comp = 0, linha_result = 0;
+        int soma_coluna = 0, coluna_comp = 0, coluna_result = 0;
+        int diag_principal = 0, diag_secundaria = 0, diag_result = 0;
+        int n_result = 0;
+
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                System.out.print("Digite um numero inteiro: ");
+                matriz[i][j] = ler.nextInt();
+            }
+        }
+
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+
+                if(matriz[i][j] < 1 || matriz[i][j] > 9){
+                    n_result = 1;
+                }
+
+                for(int k = 0; k < 3; k++){
+                    for(int l = 0; l < 3; l++){
+                        if((i != k || j != l) && matriz[i][j] == matriz[k][l]){
+                            n_result = 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+
+                if(i == 0){
+                    soma_linha += matriz[i][j];
+                    soma_coluna += matriz[j][i];
+                }
+
+                if(i == j){
+                    diag_principal += matriz[i][j];
+                }
+
+                if((i + j) == 2){
+                    diag_secundaria += matriz[i][j];
+                }
+
+                linha_comp += matriz[i][j];
+                coluna_comp += matriz[j][i];
+            }
+
+            if(linha_comp != soma_linha){
+                linha_result = 1;
+            }
+
+            if(coluna_comp != soma_coluna){
+                coluna_result = 1;
+            }
+
+            linha_comp = 0;
+            coluna_comp = 0;
+        }
+
+        if(diag_principal != diag_secundaria){
+            diag_result = 1;
+        }
+
+        for(int i = 0; i < 3; i++){
+            System.out.println();
+
+            for(int j = 0; j < 3; j++){
+                System.out.print(" | " + matriz[i][j] + " | ");
+            }
+        }
+
+        if(linha_result == 0 && coluna_result == 0 &&
+           diag_result == 0 && n_result == 0){
+
+            System.out.print("\n\nE um quadrado magico");
+
+        } else {
+
+            System.out.println("\n\nNao e um quadrado magico");
+
+            if(n_result == 1){
+                System.out.print("\nA matriz nao possui os numeros de 1 a 9 sem repeticao");
+            }
+
+            if(linha_result == 1){
+                System.out.print("\nA soma das linhas nao sao iguais");
+            }
+
+            if(coluna_result == 1){
+                System.out.print("\nA soma das colunas nao sao iguais");
+            }
+
+            if(diag_result == 1){
+                System.out.print("\nA soma das diagonais nao sao iguais");
+            }
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------------------
+
+7)
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner ler = new Scanner(System.in);
+
+        int[][] campo = new int[8][8];
+        int linha, coluna, navio = 0, acerto = 0, erro = 0, repetidos = 0;
+
+        for(int i = 0; i < 8; i++){
+            for(int j = 0; j < 8; j++){
+                campo[i][j] = 0;
+            }
+        }
+
+        while(navio < 5){
+            System.out.print("Digite a linha do navio (0 a 7): ");
+            linha = ler.nextInt();
+
+            System.out.print("Digite a coluna do navio (0 a 7): ");
+            coluna = ler.nextInt();
+
+            if(linha < 0 || linha > 7 || coluna < 0 || coluna > 7){
+                System.out.println("Posicao fora do tabuleiro!");
+
+            }else if(campo[linha][coluna] == 1){
+                System.out.println("Essa posicao ja possui um navio!");
+
+            }else{
+                campo[linha][coluna] = 1;
+                navio++;
+                System.out.println("Navio colocado!");
+            }
+        }
+
+        System.out.println("\nTodos os navios foram posicionados!");
+        System.out.println("Vamos comecar a batalha!");
+
+        for(int i = 1; i <= 15; i++){
+            if(acerto == 5){
+                break;
+            }
+
+            System.out.println("\nDisparo " + i);
+
+            System.out.print("Digite a linha (0 a 7): ");
+            linha = ler.nextInt();
+
+            System.out.print("Digite a coluna (0 a 7): ");
+            coluna = ler.nextInt();
+
+            if(linha < 0 || linha > 7 || coluna < 0 || coluna > 7){
+                System.out.println("Posicao fora do tabuleiro!");
+
+            }else if(campo[linha][coluna] == -1){
+                System.out.println("Disparo repetido!");
+                repetidos++;
+
+            }else if(campo[linha][coluna] == 1){
+                System.out.println("Acertou! Navio atingido!");
+                campo[linha][coluna] = -1;
+                acerto++;
+
+            }else{
+                System.out.println("Errou! Mais sorte na proxima!");
+                campo[linha][coluna] = -1;
+                erro++;
+            }
+        }
+
+        System.out.println("\nRESULTADO: ");
+        System.out.println("Acertos: " + acerto);
+        System.out.println("Erros: " + erro);
+        System.out.println("Disparos repetidos: " + repetidos);
+
+        if(acerto == 5){
+            System.out.println("Todos os navios foram destruidos!");
+        }else{
+            System.out.println("Os 15 disparos acabaram!");
+        }
+    }
+}
+
+--------------------------------------------------------------------------------------------
+
+8)
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner ler = new Scanner(System.in);
+
+        int[][] assento = new int[10][12];
+        int status = 0, resposta, linha, coluna;
+        int livre = 120, ocupado = 0;
+        int seq, seq_x = 0, seq_y = 0, seq_cont = 0;
+
+        for(int i = 0; i < 10; i++){
+            for(int j = 0; j < 12; j++){
+                assento[i][j] = 0;
+            }
+        }
+
+        do{
+            System.out.println("\n\nRESERVA DE ASSENTOS: ");
+            System.out.println("\n1 - Reservar um assento");
+            System.out.println("\n2 - Cancelar uma reserva");
+            System.out.println("\n3 - Exibir mapa de assentos");
+            System.out.println("\n4 - Mostrar quantidade de assentos livres e ocupados");
+            System.out.println("\n5 - Encontrar uma sequencia de assentos");
+            System.out.println("\n6 - Encerrar");
+            System.out.print("\nEscolha: ");
+            resposta = ler.nextInt();
+
+            switch(resposta){
+
+                case 1:
+                    System.out.println("\n\nRESERVAR UM ASSENTO: ");
+
+                    System.out.print("\nDigite a linha desejada: ");
+                    linha = ler.nextInt();
+
+                    System.out.print("Digite a coluna desejada: ");
+                    coluna = ler.nextInt();
+
+                    if(linha < 0 || linha > 9 || coluna < 0 || coluna > 11){
+                        System.out.println("\nEssa posicao nao existe no cinema.");
+
+                    }else if(assento[linha][coluna] == 0){
+                        assento[linha][coluna] = 1;
+                        ocupado++;
+                        livre--;
+
+                        System.out.println("\nSeu assento foi reservado!");
+                        System.out.println("Agradecemos pela preferencia.");
+
+                    }else{
+                        System.out.println("\nDesculpe, este assento ja esta reservado.");
+                        System.out.println("Por favor, escolha outro.");
+                    }
+
+                    break;
+
+                case 2:
+                    System.out.println("\n\nCANCELAR UMA RESERVA: ");
+
+                    System.out.print("\nDigite a linha desejada: ");
+                    linha = ler.nextInt();
+
+                    System.out.print("Digite a coluna desejada: ");
+                    coluna = ler.nextInt();
+
+                    if(linha < 0 || linha > 9 || coluna < 0 || coluna > 11){
+                        System.out.println("\nEssa posicao nao existe no cinema.");
+
+                    }else if(assento[linha][coluna] == 1){
+                        assento[linha][coluna] = 0;
+                        livre++;
+                        ocupado--;
+
+                        System.out.println("\nSua reserva foi cancelada!");
+                        System.out.println("Conte conosco para o que precisar.");
+
+                    }else{
+                        System.out.println("\nEste assento nao possuia reserva.");
+                    }
+
+                    break;
+
+                case 3:
+                    System.out.println("\n\nMAPA DOS ASSENTOS: ");
+
+                    for(int i = 0; i < 10; i++){
+                        System.out.println();
+
+                        for(int j = 0; j < 12; j++){
+                            System.out.print(" | " + assento[i][j] + " | ");
+                        }
+                    }
+
+                    break;
+
+                case 4:
+                    System.out.println("\n\nQUANTIDADE DE ASSENTOS LIVRES E OCUPADOS: ");
+                    System.out.println("\nAssentos livres: " + livre);
+                    System.out.println("Assentos ocupados: " + ocupado);
+
+                    break;
+
+                case 5:
+                    System.out.println("\n\nSEQUENCIA DE ASSENTOS: ");
+
+                    System.out.print("\nDigite a quantidade de cadeiras que voce precisa: ");
+                    seq = ler.nextInt();
+
+                    if(seq < 1 || seq > 12){
+                        System.out.println("\nQuantidade de cadeiras invalida, por favor tente novamente.");
+
+                    }else{
+
+                        seq_cont = 0;
+
+                        for(int i = 0; i < 10 && seq_cont < seq; i++){
+
+                            seq_cont = 0;
+
+                            for(int j = 0; j < 12; j++){
+
+                                if(assento[i][j] == 0){
+                                    seq_cont++;
+
+                                    if(seq_cont == seq){
+                                        seq_x = i;
+                                        seq_y = j - seq + 1;
+                                        break;
+                                    }
+
+                                }else{
+                                    seq_cont = 0;
+                                }
+                            }
+                        }
+
+                        if(seq_cont == seq){
+                            System.out.println("\nExiste uma sequencia de assentos!");
+                            System.out.println("Fileira: " + seq_x);
+
+                            System.out.print("Assentos disponiveis: ");
+
+                            for(int i = seq_y; i < seq_y + seq; i++){
+                                System.out.print(i + " ");
+                            }
+
+                        }else{
+                            System.out.println("\nDesculpe, nao possuimos a quantidade de assentos que voce precisa.");
+                        }
+                    }
+
+                    seq_cont = 0;
+
+                    break;
+
+                case 6:
+                    status = 1;
+                    break;
+
+                default:
+                    System.out.println("\nPor favor, escolha uma opcao valida.");
+            }
+
+        }while(status == 0);
+
+        System.out.print("\nVolte sempre!");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
